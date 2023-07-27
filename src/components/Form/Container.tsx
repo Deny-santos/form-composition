@@ -7,7 +7,7 @@ type Props = {
 export const Container = ({children}: Props) => {
     return (
         <div className={`
-            flex flex-col gap-6 w-[500px] bg-zinc-200 max-w-[90%] h-[500px] p-10
+            flex flex-col gap-6 w-[500px] max-w-[90%] h-[500px] p-10
         `}>
             {children}
         </div>
