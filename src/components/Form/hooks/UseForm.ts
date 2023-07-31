@@ -1,13 +1,10 @@
 "use client"
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { InputContext } from "../../../context/inputFocus";
 import { useContext } from 'react';
+import { InputType } from '../types';
 
-type InputType = {
-    email: boolean;
-    password: boolean;
-};
 
 const UseForm = () => {
         const inputContext = useContext(InputContext);
@@ -26,7 +23,6 @@ const UseForm = () => {
             setInputFocus((prev: InputType) => ({ ...prev, [inputName]: false }));
         };
 
-        // input password
         const [inputTypeText, setInputTypePassword] = useState(false);
 
         const handleChangeInputType = () => {

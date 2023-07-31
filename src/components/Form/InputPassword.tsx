@@ -1,28 +1,27 @@
 'use client'
 
-
-import { Input } from './Input'
 import { AiFillEyeInvisible } from "react-icons/ai"
 import { AiFillEye } from "react-icons/ai"
 import { Instructions } from './Instructions'
 import UseForm from './hooks/UseForm'
+import { Children, InputHTMLAttributes } from 'react'
+
 
 type Props = {
-    label: string
-    name: string
-}
+    children: React.ReactNode
+} & InputHTMLAttributes<HTMLInputElement>
 
-export const InputPassword = ({ label, name }: Props) => {
+export const InputPassword = ({ children }: Props) => {
 
     const { handleChangeInputType, inputTypeText } = UseForm()
 
     return (
-        <div className='relative flex flex-col max-h-max'>
+        <div className='relative flex flex-col max-h-max gap-2'>
             <Instructions/>
-            <Input label={label} name={name} type={inputTypeText ? "text" : "password"} />
+            {children}
             <span 
                 className={`
-                    absolute right-2  text-[25px] cursor-pointer top-10
+                    absolute right-3  text-[25px] cursor-pointer top-10 text-blue-600
                 `}
                 onClick={handleChangeInputType}>
                 {inputTypeText ? <AiFillEye/> : <AiFillEyeInvisible />}

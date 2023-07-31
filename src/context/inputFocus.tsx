@@ -1,19 +1,17 @@
 "use client"
 
+import { InputType } from "@/components/Form/types";
 import React, { createContext, useState } from "react";
 
 type Props = {
     children: React.ReactNode;
 };
 
-type InputFocus = {
-    email: boolean;
-    password: boolean;
-};
+
 
 type InputContextType = {
-    inputFocus: InputFocus;
-    setInputFocus: React.Dispatch<React.SetStateAction<InputFocus>>;
+    inputFocus: InputType;
+    setInputFocus: React.Dispatch<React.SetStateAction<InputType>>;
 };
 
 export const InputContext = createContext<InputContextType | undefined>(undefined);
@@ -21,7 +19,7 @@ export const InputContext = createContext<InputContextType | undefined>(undefine
 export const InputProvider = (props: Props) => {
     const { children } = props;
 
-    const [inputFocus, setInputFocus] = useState<InputFocus>({
+    const [inputFocus, setInputFocus] = useState<InputType>({
         email: false,
         password: false
     });

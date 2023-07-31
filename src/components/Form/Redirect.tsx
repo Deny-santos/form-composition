@@ -1,4 +1,5 @@
 import React from 'react'
+import { AiOutlineArrowRight } from 'react-icons/ai'
 
 type Props = {
     text: string
@@ -7,6 +8,11 @@ type Props = {
 
 export const Redirect = ({ text, href }: Props) => {
     return (
-        <a href={href}>{text}</a>
+        <a 
+            className='flex items-center gap-2' 
+            href={href}
+        >
+            {text} <AiOutlineArrowRight/>
+        </a>
     )
 }
