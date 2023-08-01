@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from 'react';
 import { InputContext } from "../../../context/inputFocus";
 import { useContext } from 'react';
 import { InputType } from '../types';
@@ -13,7 +12,7 @@ const UseForm = () => {
             throw new Error('Error: Missing context value');
         }
 
-        const { inputFocus, setInputFocus } = inputContext;
+        const { inputFocus, setInputFocus, isInputText, setIsInputText } = inputContext;
 
         const handleInputFocus = (inputName: string) => {
             setInputFocus((prev: InputType) => ({ ...prev, [inputName]: true }));
@@ -23,15 +22,14 @@ const UseForm = () => {
             setInputFocus((prev: InputType) => ({ ...prev, [inputName]: false }));
         };
 
-        const [inputTypeText, setInputTypePassword] = useState(false);
-
         const handleChangeInputType = () => {
-            setInputTypePassword(!inputTypeText);
+            setIsInputText(!isInputText);
         };
 
         return {
             inputFocus,
-            inputTypeText,
+            isInputText, 
+            setIsInputText,
             handleInputFocus,
             handleInputBlur,
             handleChangeInputType,

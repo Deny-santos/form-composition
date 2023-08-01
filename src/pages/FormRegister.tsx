@@ -11,7 +11,7 @@ import UseForm from '@/components/Form/hooks/UseForm'
 export const FormRegister = () => {
 
     const {errors, register} = useFormZod()
-    const {handleInputBlur, handleInputFocus} = UseForm()
+    const {handleInputBlur, handleInputFocus, isInputText} = UseForm()
 
     return (
         <InputProvider>
@@ -44,6 +44,7 @@ export const FormRegister = () => {
                                 bg-transparent outline-none pr-10 pl-5 py-2 border-2 rounded-full overflow-hidden
                                 focus:border-blue-500 border-zinc-400
                             `}
+                            type={isInputText ? 'text' : 'password'}
                             onFocus={() => handleInputFocus("password")}
                             onBlur={() => handleInputBlur("password")}
                         />
@@ -53,6 +54,7 @@ export const FormRegister = () => {
                     <input
                         {...register("hidden")}
                         disabled
+                        
                     />
                     <Form.Button text='Criar Conta' />
 

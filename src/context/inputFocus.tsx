@@ -12,6 +12,8 @@ type Props = {
 type InputContextType = {
     inputFocus: InputType;
     setInputFocus: React.Dispatch<React.SetStateAction<InputType>>;
+    isInputText: boolean
+    setIsInputText: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const InputContext = createContext<InputContextType | undefined>(undefined);
@@ -24,8 +26,10 @@ export const InputProvider = (props: Props) => {
         password: false
     });
 
+    const [isInputText, setIsInputText] = useState<boolean>(false)
+
     return (
-        <InputContext.Provider value={{ inputFocus, setInputFocus }}>
+        <InputContext.Provider value={{ inputFocus, setInputFocus, isInputText, setIsInputText}}>
             {children}
         </InputContext.Provider>
     );

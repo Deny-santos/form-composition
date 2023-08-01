@@ -9,7 +9,8 @@ import { ErrorMessage } from '@/components/Form/ErrorMessage'
 export default function FormLogin() {
 
     const { handleForm, errors, handleSubmit, register } = useFormZod()
-    const { handleInputFocus, handleInputBlur } = UseForm()
+    const { handleInputFocus, handleInputBlur, isInputText } = UseForm()
+
 
     return (
         <div className={`
@@ -42,6 +43,7 @@ export default function FormLogin() {
                                 bg-transparent outline-none pr-10 pl-5 py-2 border-2 rounded-full overflow-hidden
                                 focus:border-blue-500 border-zinc-400
                             `}
+                        type={isInputText ? 'text' : 'password'}
                         onFocus={() => handleInputFocus("password")}
                         onBlur={() => handleInputBlur("password")}
                     />

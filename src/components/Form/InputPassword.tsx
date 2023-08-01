@@ -3,8 +3,8 @@
 import { AiFillEyeInvisible } from "react-icons/ai"
 import { AiFillEye } from "react-icons/ai"
 import { Instructions } from './Instructions'
-import UseForm from './hooks/UseForm'
-import { Children, InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes } from 'react'
+import UseForm from "./hooks/UseForm"
 
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 
 export const InputPassword = ({ children }: Props) => {
 
-    const { handleChangeInputType, inputTypeText } = UseForm()
+    const { handleChangeInputType, isInputText } = UseForm()
 
     return (
         <div className='relative flex flex-col max-h-max gap-2'>
@@ -24,7 +24,7 @@ export const InputPassword = ({ children }: Props) => {
                     absolute right-3  text-[25px] cursor-pointer top-10 text-blue-600
                 `}
                 onClick={handleChangeInputType}>
-                {inputTypeText ? <AiFillEye/> : <AiFillEyeInvisible />}
+                {isInputText ? <AiFillEye/> : <AiFillEyeInvisible />}
             </span>
         </div>
     )
